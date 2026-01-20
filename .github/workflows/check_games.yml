@@ -1,0 +1,37 @@
+name: Council Matchups Checker
+
+on:
+  schedule:
+    # Runs every hour at minute 0 (change if you want)
+    - cron: '0 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run checker
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          # GITHUB_TOKEN is provided by Actions automatically. Expose it to the script:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TIMEZONE: 'US/Central'
+          COUNCIL_FILE: 'council_schools.json'
+          # Optional: JSON string map of council numbers to discord role IDs to do proper pings
+          ROLE_ID_MAP_JSON: ${{ secrets.ROLE_ID_MAP_JSON }}
+          POSTED_STORE_ISSUE_TITLE: "KofC-posted-games-store"
+        run: python check_games.py
