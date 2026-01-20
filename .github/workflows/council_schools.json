@@ -1,0 +1,132 @@
+{
+  "university_of_notre_dame": {
+    "official_name": "University of Notre Dame",
+    "council": 1477,
+    "aliases": {
+      "common": [
+        "University of Notre Dame"
+      ],
+      "spreadsheet": [
+        "University of Notre Dame"
+      ]
+    },
+    "espn_ids": []
+  },
+  "mount_st_marys_university": {
+    "official_name": "Mount St. Mary\u2019s University",
+    "council": 1965,
+    "aliases": {
+      "common": [
+        "Mount St. Mary\u2019s University"
+      ],
+      "spreadsheet": [
+        "Mount St. Mary\u2019s University"
+      ]
+    },
+    "espn_ids": []
+  },
+  "university_of_illinois": {
+    "official_name": "University of Illinois",
+    "council": 2782,
+    "aliases": {
+      "common": [
+        "University of Illinois"
+      ],
+      "spreadsheet": [
+        "University of Illinois"
+      ]
+    },
+    "espn_ids": []
+  },
+  "university_of_scranton": {
+    "official_name": "University of Scranton",
+    "council": 4032,
+    "aliases": {
+      "common": [
+        "University of Scranton"
+      ],
+      "spreadsheet": [
+        "University of Scranton"
+      ]
+    },
+    "espn_ids": []
+  },
+  "fairfield_university": {
+    "official_name": "Fairfield University",
+    "council": 4203,
+    "aliases": {
+      "common": [
+        "Fairfield University"
+      ],
+      "spreadsheet": [
+        "Fairfield University"
+      ]
+    },
+    "espn_ids": []
+  },
+  "villanova_university": {
+    "official_name": "Villanova University",
+    "council": 4396,
+    "aliases": {
+      "common": [
+        "Villanova University"
+      ],
+      "spreadsheet": [
+        "Villanova University"
+      ]
+    },
+    "espn_ids": []
+  },
+  "catholic_university_of_america": {
+    "official_name": "Catholic University of America",
+    "council": 4954,
+    "aliases": {
+      "common": [
+        "Catholic University of America"
+      ],
+      "spreadsheet": [
+        "Catholic University of America"
+      ]
+    },
+    "espn_ids": []
+  },
+  "boston_college": {
+    "official_name": "Boston College",
+    "council": 5887,
+    "aliases": {
+      "common": [
+        "Boston College"
+      ],
+      "spreadsheet": [
+        "Boston College"
+      ]
+    },
+    "espn_ids": []
+  },
+  "st_johns_university": {
+    "official_name": "St. John\u2019s University",
+    "council": 5816,
+    "aliases": {
+      "common": [
+        "St. John\u2019s University"
+      ],
+      "spreadsheet": [
+        "St. John\u2019s University"
+      ]
+    },
+    "espn_ids": []
+  },
+  "university_of_dallas": {
+    "official_name": "University of Dallas",
+    "council": 7999,
+    "aliases": {
+      "common": [
+        "University of Dallas"
+      ],
+      "spreadsheet": [
+        "University of Dallas"
+      ]
+    },
+    "espn_ids": []
+  }
+}
