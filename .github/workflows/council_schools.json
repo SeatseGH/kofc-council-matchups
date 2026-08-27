@@ -1,132 +1,1283 @@
-{
-  "university_of_notre_dame": {
-    "official_name": "University of Notre Dame",
-    "council": 1477,
-    "aliases": {
-      "common": [
-        "University of Notre Dame"
-      ],
-      "spreadsheet": [
-        "University of Notre Dame"
-      ]
-    },
-    "espn_ids": []
+[
+  {
+    "name": "University of Notre Dame",
+    "city": "Notre Dame",
+    "state": "Indiana",
+    "council": "1477",
+    "alt_names": [
+      "Notre Dame Fighting Irish",
+      "Notre Dame"
+    ]
   },
-  "mount_st_marys_university": {
-    "official_name": "Mount St. Mary\u2019s University",
-    "council": 1965,
-    "aliases": {
-      "common": [
-        "Mount St. Mary\u2019s University"
-      ],
-      "spreadsheet": [
-        "Mount St. Mary\u2019s University"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Mount St. Mary's University",
+    "city": "Emmitsburg",
+    "state": "Maryland",
+    "council": "1965",
+    "alt_names": [
+      "Mount St. Marys Mountaineers",
+      "Mount St. Marys",
+      "Mount"
+    ]
   },
-  "university_of_illinois": {
-    "official_name": "University of Illinois",
-    "council": 2782,
-    "aliases": {
-      "common": [
-        "University of Illinois"
-      ],
-      "spreadsheet": [
-        "University of Illinois"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Univerity of Illinois",
+    "city": "Champaign",
+    "state": "Illinois",
+    "council": "2782"
   },
-  "university_of_scranton": {
-    "official_name": "University of Scranton",
-    "council": 4032,
-    "aliases": {
-      "common": [
-        "University of Scranton"
-      ],
-      "spreadsheet": [
-        "University of Scranton"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "University of Scranton",
+    "city": "Scranton",
+    "state": "Pennsylvania",
+    "council": "4032",
+    "alt_names": [
+      "Scranton Royals",
+      "Scranton"
+    ]
   },
-  "fairfield_university": {
-    "official_name": "Fairfield University",
-    "council": 4203,
-    "aliases": {
-      "common": [
-        "Fairfield University"
-      ],
-      "spreadsheet": [
-        "Fairfield University"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Fairfield University",
+    "city": "Fairfield",
+    "state": "Connecticut",
+    "council": "4203",
+    "alt_names": [
+      "Fairfield Stags",
+      "Fairfield"
+    ]
   },
-  "villanova_university": {
-    "official_name": "Villanova University",
-    "council": 4396,
-    "aliases": {
-      "common": [
-        "Villanova University"
-      ],
-      "spreadsheet": [
-        "Villanova University"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Villanova University",
+    "city": "Villanova",
+    "state": "Pennsylvania",
+    "council": "4609",
+    "alt_names": [
+      "Villanova Wildcats",
+      "Villanova"
+    ]
   },
-  "catholic_university_of_america": {
-    "official_name": "Catholic University of America",
-    "council": 4954,
-    "aliases": {
-      "common": [
-        "Catholic University of America"
-      ],
-      "spreadsheet": [
-        "Catholic University of America"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Benedictine College",
+    "city": "Atchison",
+    "state": "Kansas",
+    "council": "4708",
+    "alt_names": [
+      "Benedictine Ravens",
+      "Benedictine"
+    ]
   },
-  "boston_college": {
-    "official_name": "Boston College",
-    "council": 5887,
-    "aliases": {
-      "common": [
-        "Boston College"
-      ],
-      "spreadsheet": [
-        "Boston College"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "St. Anselm College",
+    "city": "Manchester",
+    "state": "New Hampshire",
+    "council": "4875",
+    "alt_names": [
+      "Saint Anselm Hawks",
+      "Saint Anselm"
+    ]
   },
-  "st_johns_university": {
-    "official_name": "St. John\u2019s University",
-    "council": 5816,
-    "aliases": {
-      "common": [
-        "St. John\u2019s University"
-      ],
-      "spreadsheet": [
-        "St. John\u2019s University"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "St. Mary's University",
+    "city": "Winona",
+    "state": "Minnesota",
+    "council": "5202",
+    "alt_names": [
+      "St. Marys Rattlers",
+      "Saint Marys"
+    ]
   },
-  "university_of_dallas": {
-    "official_name": "University of Dallas",
-    "council": 7999,
-    "aliases": {
-      "common": [
-        "University of Dallas"
-      ],
-      "spreadsheet": [
-        "University of Dallas"
-      ]
-    },
-    "espn_ids": []
+  {
+    "name": "Providence College",
+    "city": "Providence",
+    "state": "Rhode Island",
+    "council": "5787",
+    "alt_names": [
+      "Providence Friars",
+      "Providence"
+    ]
+  },
+  {
+    "name": "Manhattan College",
+    "city": "New York",
+    "state": "New York",
+    "council": "5963",
+    "alt_names": [
+      "Manhattan Jaspers",
+      "Manhattan"
+    ]
+  },
+  {
+    "name": "King's College",
+    "city": "Wilkes Barre",
+    "state": "Pennsylvania",
+    "council": "5966",
+    "alt_names": [
+      "Kings Monarchs",
+      "Kings College"
+    ]
+  },
+  {
+    "name": "Creighton University",
+    "city": "Omaha",
+    "state": "Nebraska",
+    "council": "6268",
+    "alt_names": [
+      "Creighton Bluejays",
+      "Creighton"
+    ]
+  },
+  {
+    "name": "University of Louisana at Monroe",
+    "city": "Monroe",
+    "state": "Louisiana",
+    "council": "6324",
+    "alt_names": [
+      "Louisiana Monroe Warhawks",
+      "ULM",
+      "Louisiana Monroe"
+    ]
+  },
+  {
+    "name": "Georgetown University",
+    "city": "Washington",
+    "state": "District Of Columbia",
+    "council": "6375",
+    "alt_names": [
+      "Georgetown Hoyas",
+      "Georgetown"
+    ]
+  },
+  {
+    "name": "University of Wisconsin",
+    "city": "Madison",
+    "state": "Wisconsin",
+    "council": "6568",
+    "alt_names": [
+      "Wisconsin Badgers",
+      "Wisconsin"
+    ]
+  },
+  {
+    "name": "Marquette University",
+    "city": "Milwaukee",
+    "state": "Wisconsin",
+    "council": "6883",
+    "alt_names": [
+      "Marquette Golden Eagles",
+      "Marquette"
+    ]
+  },
+  {
+    "name": "The Citadel",
+    "city": "Charleston",
+    "state": "South Carolina",
+    "council": "6900",
+    "alt_names": [
+      "Citadel Bulldogs",
+      "The Citadel Bulldogs"
+    ]
+  },
+  {
+    "name": "University of Missouri",
+    "city": "Columbia",
+    "state": "Missouri",
+    "council": "7231",
+    "alt_names": [
+      "Missouri Tigers"
+    ]
+  },
+  {
+    "name": "Southern Illinois University",
+    "city": "Carbondale",
+    "state": "Illinois",
+    "council": "7682",
+    "alt_names": [
+      "Southern Illinois Salukis",
+      "SIU",
+      "Southern Illinois"
+    ]
+  },
+  {
+    "name": "University of Arkansas",
+    "city": "Fayetteville",
+    "state": "Arkansas",
+    "council": "7787",
+    "alt_names": [
+      "Arkansas Razorbacks"
+    ]
+  },
+  {
+    "name": "Arizona State University",
+    "city": "Asu Tempe",
+    "state": "Arizona",
+    "council": "8090",
+    "alt_names": [
+      "Arizona State Sun Devils",
+      "Arizona State",
+      "ASU"
+    ]
+  },
+  {
+    "name": "U.S. Air Force Academy",
+    "city": "A F Academy Co Spgs",
+    "state": "Colorado",
+    "council": "8200",
+    "alt_names": [
+      "Air Force Falcons",
+      "Air Force"
+    ]
+  },
+  {
+    "name": "U.S. Military Academy",
+    "city": "West Point",
+    "state": "New York",
+    "council": "8250",
+    "alt_names": [
+      "Army Black Knights",
+      "Army West Point",
+      "Army"
+    ]
+  },
+  {
+    "name": "West Virginia University",
+    "city": "Morgantown",
+    "state": "West Virginia",
+    "council": "8288",
+    "alt_names": [
+      "West Virginia Mountaineers",
+      "West Virginia"
+    ]
+  },
+  {
+    "name": "John Carroll University",
+    "city": "University Heights",
+    "state": "Ohio",
+    "council": "8320",
+    "alt_names": [
+      "John Carroll Blue Streaks",
+      "John Carroll"
+    ]
+  },
+  {
+    "name": "Kansas State University",
+    "city": "Manhattan",
+    "state": "Kansas",
+    "council": "8511",
+    "alt_names": [
+      "Kansas State Wildcats",
+      "Kansas State",
+      "K-State"
+    ]
+  },
+  {
+    "name": "Eastern Illinois University",
+    "city": "Charleston",
+    "state": "Illinois",
+    "council": "8713",
+    "alt_names": [
+      "Eastern Illinois Panthers",
+      "Eastern Illinois",
+      "EIU"
+    ]
+  },
+  {
+    "name": "Rockhurst College",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "council": "8970",
+    "alt_names": [
+      "Rockhurst Hawks",
+      "Rockhurst"
+    ]
+  },
+  {
+    "name": "North Dakota State University",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "council": "9126",
+    "alt_names": [
+      "North Dakota State Bison",
+      "NDSU",
+      "North Dakota State"
+    ]
+  },
+  {
+    "name": "Norwich University",
+    "city": "Northfield",
+    "state": "Vermont",
+    "council": "9146",
+    "alt_names": [
+      "Norwich Cadets",
+      "Norwich"
+    ]
+  },
+  {
+    "name": "Loras College",
+    "city": "Dubuque",
+    "state": "Iowa",
+    "council": "9224",
+    "alt_names": [
+      "Loras Duhawks",
+      "Loras"
+    ]
+  },
+  {
+    "name": "James Madison University",
+    "city": "Harrisonburg",
+    "state": "Virginia",
+    "council": "9286",
+    "alt_names": [
+      "James Madison Dukes",
+      "James Madison",
+      "JMU"
+    ]
+  },
+  {
+    "name": "The Catholic University of America",
+    "city": "Washington",
+    "state": "District Of Columbia",
+    "council": "9542"
+  },
+  {
+    "name": "U.S. Merchant Marine Academy",
+    "city": "Kings Point",
+    "state": "New York",
+    "council": "9666"
+  },
+  {
+    "name": "Franciscan University of Steubenville",
+    "city": "Steubenville",
+    "state": "Ohio",
+    "council": "9804",
+    "alt_names": [
+      "Franciscan Barons",
+      "Franciscan"
+    ]
+  },
+  {
+    "name": "St. Joseph's College",
+    "city": "Edmonton",
+    "state": "Alberta",
+    "council": "10060"
+  },
+  {
+    "name": "University of Kansas",
+    "city": "Lawrence",
+    "state": "Kansas",
+    "council": "10204",
+    "alt_names": [
+      "Kansas Jayhawks"
+    ]
+  },
+  {
+    "name": "Texas A & M University",
+    "city": "College Station",
+    "state": "Texas",
+    "council": "10624",
+    "alt_names": [
+      "Texas A&M Aggies",
+      "Texas A&M"
+    ]
+  },
+  {
+    "name": "Duquesne University",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "council": "10812",
+    "alt_names": [
+      "Duquesne Dukes",
+      "Duquesne"
+    ]
+  },
+  {
+    "name": "Missouri State University",
+    "city": "Springfield",
+    "state": "Missouri",
+    "council": "11182"
+  },
+  {
+    "name": "Virginia Polytechnic Institute",
+    "city": "Blacksburg",
+    "state": "Virginia",
+    "council": "11323",
+    "alt_names": [
+      "Virginia Tech Hokies",
+      "Virginia Tech"
+    ]
+  },
+  {
+    "name": "University of Virginia",
+    "city": "Charlottesville",
+    "state": "Virginia",
+    "council": "11324",
+    "alt_names": [
+      "Virginia Cavaliers",
+      "Virginia"
+    ]
+  },
+  {
+    "name": "Santo Tomas De Aquino",
+    "city": "Santo Domingo",
+    "state": "Dominican Republic",
+    "council": "12247"
+  },
+  {
+    "name": "Mansfield University",
+    "city": "Mansfield",
+    "state": "Pennsylvania",
+    "council": "12436",
+    "alt_names": [
+      "Mansfield Mountaineers",
+      "Mansfield"
+    ]
+  },
+  {
+    "name": "Gonzaga University",
+    "city": "Spokane",
+    "state": "Washington",
+    "council": "12583",
+    "alt_names": [
+      "Gonzaga Bulldogs",
+      "Gonzaga"
+    ]
+  },
+  {
+    "name": "University of Nebraska",
+    "city": "Lincoln",
+    "state": "Nebraska",
+    "council": "13015",
+    "alt_names": [
+      "Nebraska Cornhuskers",
+      "Nebraska"
+    ]
+  },
+  {
+    "name": "Iowa State University",
+    "city": "Ames",
+    "state": "Iowa",
+    "council": "13160",
+    "alt_names": [
+      "Iowa State Cyclones",
+      "Iowa State"
+    ]
+  },
+  {
+    "name": "The George Washington University",
+    "city": "Washington",
+    "state": "District Of Columbia",
+    "council": "13242"
+  },
+  {
+    "name": "University of Maryland",
+    "city": "College Park",
+    "state": "Maryland",
+    "council": "13295",
+    "alt_names": [
+      "Maryland Terrapins",
+      "Maryland"
+    ]
+  },
+  {
+    "name": "Jacksonville State University",
+    "city": "Jacksonville",
+    "state": "Alabama",
+    "council": "13513",
+    "alt_names": [
+      "Jacksonville State Gamecocks",
+      "Jacksonville State"
+    ]
+  },
+  {
+    "name": "Assumption Seminary",
+    "city": "San Antonio",
+    "state": "Texas",
+    "council": "13523"
+  },
+  {
+    "name": "Baylor University",
+    "city": "Waco",
+    "state": "Texas",
+    "council": "13577",
+    "alt_names": [
+      "Baylor Bears",
+      "Baylor"
+    ]
+  },
+  {
+    "name": "Rensselear Polytechnic Institute",
+    "city": "Troy",
+    "state": "New York",
+    "council": "13635",
+    "alt_names": [
+      "RPI Engineers",
+      "Rensselaer",
+      "RPI"
+    ]
+  },
+  {
+    "name": "Conception Seminary College",
+    "city": "Conception",
+    "state": "Missouri",
+    "council": "13750"
+  },
+  {
+    "name": "University of Florida",
+    "city": "Gainesville",
+    "state": "Florida",
+    "council": "13900",
+    "alt_names": [
+      "Florida Gators"
+    ]
+  },
+  {
+    "name": "University of Connecticut",
+    "city": "Storrs",
+    "state": "Connecticut",
+    "council": "14209",
+    "alt_names": [
+      "UConn Huskies",
+      "Connecticut",
+      "UConn"
+    ]
+  },
+  {
+    "name": "University of Tennessee",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "council": "14341",
+    "alt_names": [
+      "Tennessee Volunteers",
+      "Tennessee Vols"
+    ]
+  },
+  {
+    "name": "St. Vincent College",
+    "city": "Latrobe",
+    "state": "Pennsylvania",
+    "council": "14384",
+    "alt_names": [
+      "Saint Vincent Bearcats",
+      "Saint Vincent"
+    ]
+  },
+  {
+    "name": "North Carolina State University",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "council": "14422",
+    "alt_names": [
+      "NC State Wolfpack",
+      "NC State",
+      "North Carolina State"
+    ]
+  },
+  {
+    "name": "Texas Tech University",
+    "city": "Lubbock",
+    "state": "Texas",
+    "council": "14426",
+    "alt_names": [
+      "Texas Tech Red Raiders",
+      "Texas Tech"
+    ]
+  },
+  {
+    "name": "Georgia Institute of Technology",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "council": "14496",
+    "alt_names": [
+      "Georgia Tech Yellow Jackets",
+      "Georgia Tech"
+    ]
+  },
+  {
+    "name": "U.S. Naval Academy",
+    "city": "Annapolis",
+    "state": "Maryland",
+    "council": "14534",
+    "alt_names": [
+      "Navy Midshipmen",
+      "Navy"
+    ]
+  },
+  {
+    "name": "University of Louisiana",
+    "city": "Lafayette",
+    "state": "Louisiana",
+    "council": "14542",
+    "alt_names": [
+      "Louisiana Ragin Cajuns",
+      "Louisiana Lafayette",
+      "UL Lafayette"
+    ]
+  },
+  {
+    "name": "University of Utah",
+    "city": "Salt Lake City",
+    "state": "Utah",
+    "council": "14764",
+    "alt_names": [
+      "Utah Utes",
+      "Utah"
+    ]
+  },
+  {
+    "name": "Ave Maria School of Law",
+    "city": "Naples",
+    "state": "Florida",
+    "council": "14848"
+  },
+  {
+    "name": "Bradley University",
+    "city": "Peoria",
+    "state": "Illinois",
+    "council": "14870",
+    "alt_names": [
+      "Bradley Braves",
+      "Bradley University Braves",
+      "Bradley"
+    ]
+  },
+  {
+    "name": "University of Dallas",
+    "city": "Irving",
+    "state": "Texas",
+    "council": "14872",
+    "alt_names": [
+      "Dallas Crusaders",
+      "UT Dallas"
+    ]
+  },
+  {
+    "name": "University of Northern Iowa",
+    "city": "Cedar Falls",
+    "state": "Iowa",
+    "council": "14987",
+    "alt_names": [
+      "Northern Iowa Panthers",
+      "Northern Iowa",
+      "UNI"
+    ]
+  },
+  {
+    "name": "Loyola University",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "council": "15000",
+    "alt_names": [
+      "Loyola Ramblers",
+      "Loyola Maryland",
+      "Loyola Chicago"
+    ]
+  },
+  {
+    "name": "Pontifical College Josephinum",
+    "city": "Columbus",
+    "state": "Ohio",
+    "council": "15009"
+  },
+  {
+    "name": "Vanderbilt University",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "council": "15020",
+    "alt_names": [
+      "Vanderbilt Commodores",
+      "Vanderbilt"
+    ]
+  },
+  {
+    "name": "University of Houston",
+    "city": "Houston",
+    "state": "Texas",
+    "council": "15105",
+    "alt_names": [
+      "Houston Cougars",
+      "Houston"
+    ]
+  },
+  {
+    "name": "Purdue University",
+    "city": "West Lafayette",
+    "state": "Indiana",
+    "council": "15144",
+    "alt_names": [
+      "Purdue Boilermakers",
+      "Purdue"
+    ]
+  },
+  {
+    "name": "Southeast Missouri State College",
+    "city": "Cape Girardeau",
+    "state": "Missouri",
+    "council": "15294",
+    "alt_names": [
+      "Southeast Missouri State Redhawks",
+      "SEMO",
+      "Southeast Missouri"
+    ]
+  },
+  {
+    "name": "Kent State University",
+    "city": "Kent State University",
+    "state": "Ohio",
+    "council": "15312",
+    "alt_names": [
+      "Kent State Golden Flashes",
+      "Kent State"
+    ]
+  },
+  {
+    "name": "Saint Charles Borromeo Seminary",
+    "city": "Wynnewood",
+    "state": "Pennsylvania",
+    "council": "15380"
+  },
+  {
+    "name": "University of Kentucky",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "council": "15452",
+    "alt_names": [
+      "Kentucky Wildcats"
+    ]
+  },
+  {
+    "name": "South Dakota State University",
+    "city": "Brookings",
+    "state": "South Dakota",
+    "council": "15457",
+    "alt_names": [
+      "South Dakota State Jackrabbits",
+      "South Dakota State",
+      "SDSU"
+    ]
+  },
+  {
+    "name": "Catholic Pacific College",
+    "city": "Langley",
+    "state": "British Columbia",
+    "council": "15574"
+  },
+  {
+    "name": "Southern Methodist University",
+    "city": "Dallas",
+    "state": "Texas",
+    "council": "15852",
+    "alt_names": [
+      "SMU Mustangs",
+      "SMU"
+    ]
+  },
+  {
+    "name": "Indiana University",
+    "city": "Bloomington",
+    "state": "Indiana",
+    "council": "15859",
+    "alt_names": [
+      "Indiana Hoosiers"
+    ]
+  },
+  {
+    "name": "Campion College",
+    "city": "Regina",
+    "state": "Saskatchewan",
+    "council": "15955"
+  },
+  {
+    "name": "Texas A&M University",
+    "city": "Galveston",
+    "state": "Texas",
+    "council": "16146"
+  },
+  {
+    "name": "Mount St. Mary's Seminary",
+    "city": "Cincinnati",
+    "state": "Ohio",
+    "council": "16164"
+  },
+  {
+    "name": "University of Nevada, Reno",
+    "city": "Reno",
+    "state": "Nevada",
+    "council": "16207",
+    "alt_names": [
+      "Nevada Wolf Pack",
+      "Nevada"
+    ]
+  },
+  {
+    "name": "University of New Mexico",
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "council": "16353",
+    "alt_names": [
+      "New Mexico Lobos",
+      "New Mexico"
+    ]
+  },
+  {
+    "name": "Saint Martin's University",
+    "city": "Lacey",
+    "state": "Washington",
+    "council": "16361",
+    "alt_names": [
+      "Saint Martin's Saints",
+      "Saint Martins Saints",
+      "Saint Martins"
+    ]
+  },
+  {
+    "name": "The University of Oklahoma",
+    "city": "Norman",
+    "state": "Oklahoma",
+    "council": "16367",
+    "alt_names": [
+      "Oklahoma Sooners",
+      "Oklahoma"
+    ]
+  },
+  {
+    "name": "University of Alabama",
+    "city": "Tuscaloosa",
+    "state": "Alabama",
+    "council": "16400",
+    "alt_names": [
+      "Alabama Crimson Tide",
+      "Alabama"
+    ]
+  },
+  {
+    "name": "University of Mary",
+    "city": "Bismarck",
+    "state": "North Dakota",
+    "council": "16402",
+    "alt_names": [
+      "Mary Marauders",
+      "Mary"
+    ]
+  },
+  {
+    "name": "Lamar University",
+    "city": "Beaumont",
+    "state": "Texas",
+    "council": "16464",
+    "alt_names": [
+      "Lamar Cardinals",
+      "Lamar"
+    ]
+  },
+  {
+    "name": "New Mexico State University",
+    "city": "Las Cruces",
+    "state": "New Mexico",
+    "council": "16465"
+  },
+  {
+    "name": "University of Nebraska - Omaha",
+    "city": "Omaha",
+    "state": "Nebraska",
+    "council": "16680"
+  },
+  {
+    "name": "St. Patrick's Seminary",
+    "city": "Menlo Park",
+    "state": "California",
+    "council": "16688"
+  },
+  {
+    "name": "University of Hartford",
+    "city": "West Hartford",
+    "state": "Connecticut",
+    "council": "16858",
+    "alt_names": [
+      "Hartford Hawks",
+      "Hartford"
+    ]
+  },
+  {
+    "name": "University of Waterloo",
+    "city": "Waterloo",
+    "state": "Ontario",
+    "council": "16859"
+  },
+  {
+    "name": "Pittsburg State University",
+    "city": "Pittsburg",
+    "state": "Kansas",
+    "council": "16954",
+    "alt_names": [
+      "Pittsburg State Gorillas",
+      "Pittsburg State"
+    ]
+  },
+  {
+    "name": "St. Joseph Seminary",
+    "city": "Saint Benedict",
+    "state": "Louisiana",
+    "council": "17205"
+  },
+  {
+    "name": "Michigan Technological University",
+    "city": "Houghton",
+    "state": "Michigan",
+    "council": "17237",
+    "alt_names": [
+      "Michigan Tech Huskies",
+      "Michigan Tech"
+    ]
+  },
+  {
+    "name": "Notre Dame Seminary",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "council": "17413"
+  },
+  {
+    "name": "Carleton University",
+    "city": "Ottawa",
+    "state": "Ontario",
+    "council": "17476"
+  },
+  {
+    "name": "University of Texas - San Antonio",
+    "city": "San Antonio",
+    "state": "Texas",
+    "council": "17492"
+  },
+  {
+    "name": "University of Toronto",
+    "city": "Toronto",
+    "state": "Ontario",
+    "council": "17500"
+  },
+  {
+    "name": "St. Mary's Seminary",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "council": "17759"
+  },
+  {
+    "name": "St. John Vianney College Seminary",
+    "city": "Miami",
+    "state": "Florida",
+    "council": "17907"
+  },
+  {
+    "name": "University of Tennessee, Chattanooga",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "council": "17919",
+    "alt_names": [
+      "UTC Mocs",
+      "Chattanooga Mocs",
+      "Chattanooga"
+    ]
+  },
+  {
+    "name": "University of Colorado at CO Newman Ctr.",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "council": "17953",
+    "alt_names": [
+      "Colorado Buffaloes",
+      "Colorado"
+    ]
+  },
+  {
+    "name": "University of Georgia",
+    "city": "Athens",
+    "state": "Georgia",
+    "council": "17969",
+    "alt_names": [
+      "Georgia Bulldogs"
+    ]
+  },
+  {
+    "name": "Texas State University",
+    "city": "San Marcos",
+    "state": "Texas",
+    "council": "18087",
+    "alt_names": [
+      "Texas State Bobcats",
+      "Texas State"
+    ]
+  },
+  {
+    "name": "McNeese State University",
+    "city": "Lake Charles",
+    "state": "Louisiana",
+    "council": "18091",
+    "alt_names": [
+      "McNeese Cowboys",
+      "McNeese"
+    ]
+  },
+  {
+    "name": "Sacred Heart Majory Seminary",
+    "city": "Detroit",
+    "state": "Michigan",
+    "council": "18097"
+  },
+  {
+    "name": "Texas A&M Corpus Christi",
+    "city": "Corpus Christi",
+    "state": "Texas",
+    "council": "18173",
+    "alt_names": [
+      "Texas A&M-Corpus Christi Islanders",
+      "TAMUCC"
+    ]
+  },
+  {
+    "name": "St. Andrew",
+    "city": "Riverside",
+    "state": "California",
+    "council": "18182"
+  },
+  {
+    "name": "Texas A&M Kingsville",
+    "city": "Kingsville",
+    "state": "Texas",
+    "council": "18202",
+    "alt_names": [
+      "Texas A&M-Kingsville Javelinas",
+      "TAMUK"
+    ]
+  },
+  {
+    "name": "Seat of Wisdom",
+    "city": "Oxford",
+    "state": "Ohio",
+    "council": "18322"
+  },
+  {
+    "name": "St. Mary's University",
+    "city": "San Antonio",
+    "state": "Texas",
+    "council": "18327",
+    "alt_names": [
+      "St. Marys Rattlers",
+      "Saint Marys"
+    ]
+  },
+  {
+    "name": "St. Thomas Aquinas",
+    "city": "Cookville",
+    "state": "Tennessee",
+    "council": "18467"
+  },
+  {
+    "name": "Illinois State University",
+    "city": "Bloomington",
+    "state": "Illinois",
+    "council": "18578",
+    "alt_names": [
+      "Illinois State Redbirds",
+      "Illinois State"
+    ]
+  },
+  {
+    "name": "Santiago Catholic Trade School",
+    "city": "Silverado",
+    "state": "California",
+    "council": "18585"
+  },
+  {
+    "name": "Universidad De Nueva Leon",
+    "city": "Monterrey",
+    "state": "Mexico Northeast",
+    "council": "18590"
+  },
+  {
+    "name": "University of Maryland",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "council": "18656",
+    "alt_names": [
+      "Maryland Terrapins",
+      "Maryland"
+    ]
+  },
+  {
+    "name": "Angelo State University",
+    "city": "San Angelo",
+    "state": "Texas",
+    "council": "18665",
+    "alt_names": [
+      "Angelo State Rams",
+      "Angelo State"
+    ]
+  },
+  {
+    "name": "Wayne University",
+    "city": "Detroit",
+    "state": "Michigan",
+    "council": "18672",
+    "alt_names": [
+      "Wayne State Warriors",
+      "Wayne State"
+    ]
+  },
+  {
+    "name": "UW - Platteville",
+    "city": "Platteville",
+    "state": "Wisconsin",
+    "council": "18673",
+    "alt_names": [
+      "Wisconsin-Platteville Pioneers",
+      "UW-Platteville"
+    ]
+  },
+  {
+    "name": "California Polytechnic State University",
+    "city": "San Luis Obispo",
+    "state": "California",
+    "council": "18676",
+    "alt_names": [
+      "Cal Poly Mustangs",
+      "Cal Poly"
+    ]
+  },
+  {
+    "name": "High Point University",
+    "city": "High Point",
+    "state": "North Carolina",
+    "council": "N/A",
+    "alt_names": [
+      "High Point Panthers",
+      "High Point",
+      "HPU",
+      "HPU Panthers"
+    ]
+  },
+  {
+    "name": "Northern Illinois University",
+    "city": "Dekalb",
+    "state": "Illinois",
+    "council": "5572",
+    "alt_names": [
+      "Northern Illinois Huskies",
+      "Northern Illinois"
+    ]
+  },
+  {
+    "name": "Southern Illinois University Edwardsville",
+    "city": "Edwardsville",
+    "state": "Illinois",
+    "council": "8343",
+    "alt_names": [
+      "SIUE Cougars",
+      "SIU Edwardsville",
+      "SIU Edwardsville Cougars"
+    ]
+  },
+  {
+    "name": "University of Illinois Chicago",
+    "city": "Chicago",
+    "state": "Illinois",
+    "council": "11022",
+    "alt_names": [
+      "UIC Flames",
+      "Illinois Chicago Flames",
+      "University of Illinois Chicago Flames"
+    ]
+  },
+  {
+    "name": "Benedictine University",
+    "city": "Lisle",
+    "state": "Illinois",
+    "council": "11263",
+    "alt_names": [
+      "Benedictine University Eagles",
+      "Benedictine University (IL)"
+    ]
+  },
+  {
+    "name": "Loyola University Chicago",
+    "city": "Chicago",
+    "state": "Illinois",
+    "council": "15278",
+    "alt_names": [
+      "Loyola Ramblers",
+      "Loyola University Ramblers",
+      "Loyola Chicago Ramblers"
+    ]
+  },
+  {
+    "name": "University of Akron",
+    "city": "Akron",
+    "state": "Ohio",
+    "council": "18892",
+    "alt_names": [
+      "Akron Zips",
+      "Akron"
+    ]
+  },
+  {
+    "name": "University of California, Los Angeles",
+    "city": "Los Angeles",
+    "state": "California",
+    "council": "TBD",
+    "alt_names": [
+      "UCLA Bruins",
+      "UCLA"
+    ]
+  },
+  {
+    "name": "Miami University Ohio",
+    "city": "Oxford",
+    "state": "Ohio",
+    "council": "18322",
+    "alt_names": [
+      "Miami (OH)",
+      "Miami (OH) Redhawks",
+      "Miami Redhawks"
+    ]
+  },
+    {
+    "name": "Western Illinois University",
+    "city": "Macomb",
+    "state": "Illinois",
+    "council": "TBD",
+    "alt_names": [
+      "WIU",
+      "Western Illinois University Leathernecks",
+      "Western Illinois Leathernecks"
+    ]
+  },
+    {
+    "name": "University of Chicago",
+    "city": "Chicago",
+    "state": "Illinois",
+    "council": "TBD",
+    "alt_names": [
+      "UChicago",
+      "University of Chicago Maroons",
+      "UChicago Maroons"
+    ]
+  },
+    {
+    "name": "North Central College",
+    "city": "Naperville",
+    "state": "Illinois",
+    "council": "TBD",
+    "alt_names": [
+      "NCC",
+      "North Central College Cardinals",
+      "North Central Cardinals"
+    ]
+  },
+    {
+    "name": "University of Toronto",
+    "city": "Toronto",
+    "state": "Ontario",
+    "council": "17500",
+    "alt_names": [
+      "University of Toronto",
+      "University of Toronto Varsity Blues",
+      "Toronto Varsity Blues"
+    ]
   }
-}
+]
