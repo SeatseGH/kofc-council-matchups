@@ -32,8 +32,11 @@ WEBHOOK_URL  = os.environ.get("DISCORD_WEBHOOK_URL", "")
 BOT_TOKEN    = os.environ.get("DISCORD_BOT_TOKEN", "")
 GUILD_ID     = os.environ.get("DISCORD_GUILD_ID", "")
 
-SCHOOLS_FILE = Path(__file__).parent / "schools.json"
-STATE_FILE   = Path(__file__).parent / "state.json"
+_HERE = Path(__file__).resolve().parent
+# schools.json sits next to check.py; state.json defaults there too but can be
+# pointed elsewhere so it stays at a fixed, cacheable location.
+SCHOOLS_FILE = Path(os.environ.get("KOC_SCHOOLS_FILE") or (_HERE / "schools.json"))
+STATE_FILE   = Path(os.environ.get("KOC_STATE_FILE")   or (_HERE / "state.json"))
 ESPN_BASE    = "https://site.api.espn.com/apis/site/v2/sports"
 
 ESPN_LEAGUES = [
