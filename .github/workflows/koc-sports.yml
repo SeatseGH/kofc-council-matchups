@@ -46,26 +46,53 @@ jobs:
           path: state.json
           key: koc-state
 
-      - name: Verify required files are present
+      - name: Locate bot files
+        id: locate
         run: |
           echo "Repository root contents:"
           ls -la
-          missing=0
-          for f in check.py schools.json; do
-            if [ ! -f "$f" ]; then
-              echo "::error::Missing required file '$f' at the repository root."
-              missing=1
-            fi
-          done
-          if [ "$missing" -eq 1 ]; then
-            echo ""
-            echo "Both check.py and schools.json must sit at the TOP level of the repo,"
-            echo "in the same place as the .github folder — not inside a subfolder."
-            echo "Any .py or .json files found anywhere in the repo:"
-            find . -path ./.git -prune -o \( -name '*.py' -o -name '*.json' \) -print
+          # check.py is normally at the repo root, but find it wherever it is
+          SCRIPT=$(find . -path ./.git -prune -o -name 'check.py' -print | head -n 1)
+          if [ -z "$SCRIPT" ]; then
+            echo "::error::check.py not found anywhere in the repository."
+            echo "Upload check.py and schools.json to the top level of the repo."
             exit 1
           fi
-          echo "All required files found."
+          DIR=$(dirname "$SCRIPT")
+          if [ ! -f "$DIR/schools.json" ]; then
+            echo "::error::Found check.py at $SCRIPT but no schools.json beside it."
+            echo "Both files must sit in the SAME folder."
+            find . -path ./.git -prune -o -name 'schools.json' -print
+            exit 1
+          fi
+          echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
+          echo "Using $SCRIPT"
+          if [ "$DIR" != "." ]; then
+            echo "::warning::check.py is in '$DIR', not the repo root. It works, but the root is the tidier home for it."
+          fi
+
+      - name: Check required secret
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "::error::Repository secret DISCORD_WEBHOOK_URL is empty or not set."
+            echo ""
+            echo "Fix: Settings -> Secrets and variables -> Actions -> Repository secrets"
+            echo "  Name must be exactly: DISCORD_WEBHOOK_URL"
+            echo "  Value: https://discord.com/api/webhooks/..."
+            echo ""
+            echo "Note: secrets belong to ONE repository. If you renamed or recreated"
+            echo "this repo, the secret must be added again here."
+            echo "Also check it is a *Repository* secret, not an *Environment* secret."
+            exit 1
+          fi
+          case "$DISCORD_WEBHOOK_URL" in
+            https://discord.com/api/webhooks/*|https://discordapp.com/api/webhooks/*)
+              echo "DISCORD_WEBHOOK_URL is set and looks like a Discord webhook URL." ;;
+            *)
+              echo "::warning::Secret is set but does not start with https://discord.com/api/webhooks/ — double-check the value was pasted in full." ;;
+          esac
 
       - name: Run KoC sports checker
         env:
@@ -74,7 +101,10 @@ jobs:
           # Leave unset to use manual "emoji" fields in schools.json instead.
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
-        run: python check.py
+          # Keep state.json at the workspace root regardless of where check.py
+          # lives, so the cache path below always matches.
+          KOC_STATE_FILE: ${{ github.workspace }}/state.json
+        run: python "${{ steps.locate.outputs.script }}"
 
       # Delete then re-save under the same key, so only ONE cache entry ever
       # exists instead of accumulating hundreds. On the very first run there is
