@@ -1,6 +1,10 @@
 # .github/workflows/koc-sports.yml
 #
-# Runs the KoC sports checker every 30 minutes.
+# Runs the KoC sports checker every 30 minutes. It posts:
+#   Monday 9 AM ET  - preview of the week's matchups
+#   Day before game - individual game preview
+#   Game end        - final score
+#   Sunday 10 PM ET - recap of the week's results
 # Previews are sent the day before a game, so timing is not urgent;
 # 30 minutes is frequent enough for final scores too.
 #
@@ -45,6 +49,10 @@ jobs:
       - name: Run KoC sports checker
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # Optional — only needed for automatic custom-emoji lookup.
+          # Leave unset to use manual "emoji" fields in schools.json instead.
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
         run: python check.py
 
       # Delete then re-save under the same key, so only ONE cache entry
