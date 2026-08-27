@@ -23,6 +23,7 @@ import os
 import re
 import sys
 import time
+import urllib.parse
 import urllib.request
 import urllib.error
 from datetime import datetime, timedelta, timezone
@@ -88,6 +89,50 @@ BROWSER_HEADERS = {
 # Counters so the run can fail loudly if EVERY request was rejected
 espn_ok = 0
 espn_failed = 0
+espn_route = None   # which route worked, for logging
+
+# ESPN blocks GitHub Actions' IP ranges (Azure). The same request succeeds from
+# other networks, so these public read-only proxies are tried in order when the
+# direct call is refused. All are free and need no key.
+ESPN_PROXIES = [
+    "https://api.allorigins.win/raw?url={enc}",
+    "https://corsproxy.io/?url={enc}",
+    "https://api.codetabs.com/v1/proxy?quest={enc}",
+]
+
+def fetch_espn(target_url: str) -> dict:
+    """Fetch an ESPN URL directly, falling back to proxies if blocked."""
+    global espn_route
+    enc = urllib.parse.quote(target_url, safe="")
+    routes = [("direct", target_url)] + [
+        (f"proxy{i+1}", p.format(enc=enc)) for i, p in enumerate(ESPN_PROXIES)
+    ]
+    last = None
+    for name, url in routes:
+        # Once a route is known to work this run, don't retry the broken ones
+        if espn_route and name != espn_route:
+            continue
+        try:
+            data = fetch_json(url, retries=2)
+            if espn_route != name:
+                espn_route = name
+                log(f"(ESPN route: {name})")
+            return data
+        except Exception as e:
+            last = e
+            continue
+    # Nothing worked with the pinned route — clear it and try everything once
+    if espn_route:
+        espn_route = None
+        for name, url in routes:
+            try:
+                data = fetch_json(url, retries=1)
+                espn_route = name
+                log(f"(ESPN route switched to: {name})")
+                return data
+            except Exception as e:
+                last = e
+    raise last
 
 def fetch_json(url: str, headers: dict = None, retries: int = 3,
                browser_headers: bool = True) -> dict:
@@ -345,7 +390,7 @@ def fetch_koc_games(date_strs, token_map, name_map) -> list:
                 url = (f"{ESPN_BASE}/{league_path}/scoreboard"
                        f"?dates={date_str}&limit=500{variant}")
                 try:
-                    games = parse_games(fetch_json(url), sport)
+                    games = parse_games(fetch_espn(url), sport)
                     espn_ok += 1
                 except urllib.error.HTTPError as e:
                     espn_failed += 1
@@ -618,9 +663,13 @@ def main():
     # not because there were none. Fail so this is visible instead of silent.
     if espn_ok == 0 and espn_failed > 0:
         log("")
-        log("::error::Every ESPN request failed — no game data was retrieved.")
-        log("A 403 usually means ESPN rejected the request headers or the runner IP.")
-        log("This is NOT the same as 'no games scheduled', which returns an empty list.")
+        log("::error::Every ESPN request failed, direct and via all proxies.")
+        log("No game data was retrieved. This is NOT 'no games scheduled',")
+        log("which returns an empty list rather than an error.")
+        log("ESPN blocks GitHub Actions IP ranges, and the fallback proxies")
+        log("are also unavailable. Options: wait and retry (proxies are often")
+        log("temporary), or switch to the free NCAA API at")
+        log("https://github.com/henrygd/ncaa-api (self-hostable).")
         sys.exit(1)
 
     log("\nDone.")
