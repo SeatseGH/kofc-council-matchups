@@ -22,6 +22,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timedelta, timezone
@@ -70,13 +71,51 @@ except Exception:
 def log(msg: str):
     print(msg, flush=True)
 
-def fetch_json(url: str, headers: dict = None) -> dict:
-    h = {"User-Agent": "KoC-Sports-Bot/3.0"}
+# ESPN's edge rejects generic script user-agents (HTTP 403), especially from
+# datacenter IPs like GitHub Actions runners. These are the ordinary headers a
+# browser sends when loading espn.com, for the same public JSON endpoint.
+BROWSER_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) "
+                   "Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.espn.com/",
+    "Origin": "https://www.espn.com",
+    "Connection": "close",
+}
+
+# Counters so the run can fail loudly if EVERY request was rejected
+espn_ok = 0
+espn_failed = 0
+
+def fetch_json(url: str, headers: dict = None, retries: int = 3,
+               browser_headers: bool = True) -> dict:
+    # ESPN needs browser-like headers; Discord needs its own UA and no
+    # espn.com Referer/Origin, so it passes browser_headers=False.
+    h = dict(BROWSER_HEADERS) if browser_headers else {}
     if headers:
         h.update(headers)
-    req = urllib.request.Request(url, headers=h)
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode())
+    last = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=h)
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return json.loads(r.read().decode())
+        except urllib.error.HTTPError as e:
+            last = e
+            # 403/429/5xx can be transient or rate-related — back off and retry
+            if e.code in (403, 429, 500, 502, 503, 504) and attempt < retries - 1:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            raise
+        except Exception as e:
+            last = e
+            if attempt < retries - 1:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            raise
+    raise last
 
 def post_webhook(payload: dict) -> bool:
     data = json.dumps(payload).encode()
@@ -119,7 +158,15 @@ def fetch_guild_emojis() -> dict:
         return {}
     url = f"https://discord.com/api/v10/guilds/{GUILD_ID}/emojis"
     try:
-        data = fetch_json(url, {"Authorization": f"Bot {BOT_TOKEN}"})
+        data = fetch_json(
+            url,
+            headers={
+                "Authorization": f"Bot {BOT_TOKEN}",
+                "User-Agent": "DiscordBot (https://github.com, 3.0)",
+                "Accept": "application/json",
+            },
+            browser_headers=False,
+        )
     except urllib.error.HTTPError as e:
         log(f"(emoji lookup failed: HTTP {e.code} — check bot token / guild ID / bot is in server)")
         return {}
@@ -290,6 +337,7 @@ def parse_games(data: dict, sport: str) -> list:
 
 def fetch_koc_games(date_strs, token_map, name_map) -> list:
     """Fetch the given Eastern dates and return only KoC-vs-KoC games."""
+    global espn_ok, espn_failed
     found, seen = [], set()
     for sport, league_path in ESPN_LEAGUES:
         for date_str in date_strs:
@@ -298,11 +346,16 @@ def fetch_koc_games(date_strs, token_map, name_map) -> list:
                        f"?dates={date_str}&limit=500{variant}")
                 try:
                     games = parse_games(fetch_json(url), sport)
+                    espn_ok += 1
                 except urllib.error.HTTPError as e:
-                    if e.code != 404:
+                    espn_failed += 1
+                    if e.code == 404:
+                        pass  # that league/phase has no scoreboard right now
+                    else:
                         log(f"[{sport} {date_str}] HTTP {e.code}")
                     continue
                 except Exception as e:
+                    espn_failed += 1
                     log(f"[{sport} {date_str}] fetch error: {e}")
                     continue
 
@@ -557,8 +610,20 @@ def main():
             log(f"     (live: {game['away_score']}-{game['home_score']}, {game['clock']})")
 
     save_state(state)
-    log(f"\nDone. Tracked: {len(state['preview'])} previews, {len(state['final'])} finals, "
+    log(f"\nESPN requests: {espn_ok} succeeded, {espn_failed} failed")
+    log(f"Tracked: {len(state['preview'])} previews, {len(state['final'])} finals, "
         f"{len(state['weekly_preview'])} weekly previews, {len(state['weekly_recap'])} weekly recaps.")
+
+    # If nothing got through, the run found no games because it could not ask —
+    # not because there were none. Fail so this is visible instead of silent.
+    if espn_ok == 0 and espn_failed > 0:
+        log("")
+        log("::error::Every ESPN request failed — no game data was retrieved.")
+        log("A 403 usually means ESPN rejected the request headers or the runner IP.")
+        log("This is NOT the same as 'no games scheduled', which returns an empty list.")
+        sys.exit(1)
+
+    log("\nDone.")
 
 if __name__ == "__main__":
     main()
