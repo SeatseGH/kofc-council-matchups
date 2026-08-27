@@ -46,6 +46,27 @@ jobs:
           path: state.json
           key: koc-state
 
+      - name: Verify required files are present
+        run: |
+          echo "Repository root contents:"
+          ls -la
+          missing=0
+          for f in check.py schools.json; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Missing required file '$f' at the repository root."
+              missing=1
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo ""
+            echo "Both check.py and schools.json must sit at the TOP level of the repo,"
+            echo "in the same place as the .github folder — not inside a subfolder."
+            echo "Any .py or .json files found anywhere in the repo:"
+            find . -path ./.git -prune -o \( -name '*.py' -o -name '*.json' \) -print
+            exit 1
+          fi
+          echo "All required files found."
+
       - name: Run KoC sports checker
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -55,17 +76,18 @@ jobs:
           DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
         run: python check.py
 
-      # Delete then re-save under the same key, so only ONE cache entry
-      # ever exists instead of accumulating hundreds.
+      # Delete then re-save under the same key, so only ONE cache entry ever
+      # exists instead of accumulating hundreds. On the very first run there is
+      # nothing to delete, so failure here is expected and ignored.
       - name: Delete old state cache
         if: always()
         continue-on-error: true
-        run: gh cache delete koc-state --repo ${{ github.repository }}
+        run: gh cache delete koc-state --repo ${{ github.repository }} || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save alert state
-        if: always()
+        if: hashFiles('state.json') != ''
         uses: actions/cache/save@v5
         with:
           path: state.json
