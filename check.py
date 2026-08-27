@@ -41,9 +41,10 @@ SCHOOLS_FILE = Path(os.environ.get("KOC_SCHOOLS_FILE") or (_HERE / "schools.json
 STATE_FILE   = Path(os.environ.get("KOC_STATE_FILE")   or (_HERE / "state.json"))
 ESPN_BASE    = "https://site.api.espn.com/apis/site/v2/sports"
 
+# (label, api path, cdn slug)
 ESPN_LEAGUES = [
-    ("football",   "football/college-football"),
-    ("basketball", "basketball/mens-college-basketball"),
+    ("football",   "football/college-football",         "college-football"),
+    ("basketball", "basketball/mens-college-basketball", "mens-college-basketball"),
 ]
 
 # "" = all games; groups=100 = NCAA tournament bracket
@@ -91,29 +92,41 @@ espn_ok = 0
 espn_failed = 0
 espn_route = None   # which route worked, for logging
 
-# ESPN blocks GitHub Actions' IP ranges (Azure). The same request succeeds from
-# other networks, so these public read-only proxies are tried in order when the
-# direct call is refused. All are free and need no key.
-ESPN_PROXIES = [
-    "https://api.allorigins.win/raw?url={enc}",
-    "https://corsproxy.io/?url={enc}",
-    "https://api.codetabs.com/v1/proxy?quest={enc}",
-]
-
-def fetch_espn(target_url: str) -> dict:
-    """Fetch an ESPN URL directly, falling back to proxies if blocked."""
-    global espn_route
-    enc = urllib.parse.quote(target_url, safe="")
-    routes = [("direct", target_url)] + [
-        (f"proxy{i+1}", p.format(enc=enc)) for i, p in enumerate(ESPN_PROXIES)
+# ESPN blocks GitHub Actions' IP ranges on site.api.espn.com. The same data is
+# served from other ESPN hosts whose filtering differs, so we try each in turn
+# and remember whichever works. A public proxy is kept as a last resort only.
+def espn_routes(api_path: str, cdn_slug: str, date_str: str, variant: str):
+    q = f"dates={date_str}&limit=500{variant}"
+    site_api = f"https://site.api.espn.com/apis/site/v2/sports/{api_path}/scoreboard?{q}"
+    return [
+        ("site.api", site_api),
+        ("site.web", f"https://site.web.api.espn.com/apis/site/v2/sports/{api_path}/scoreboard?{q}"),
+        ("cdn",      f"https://cdn.espn.com/core/{cdn_slug}/scoreboard?xhr=1&{q}"),
+        ("proxy",    "https://api.allorigins.win/raw?url=" + urllib.parse.quote(site_api, safe="")),
     ]
+
+def extract_events(data) -> list:
+    """Pull the events list out of whichever response shape came back."""
+    if not isinstance(data, dict):
+        return []
+    if isinstance(data.get("events"), list):
+        return data["events"]                      # site.api / site.web shape
+    content = data.get("content")
+    if isinstance(content, dict):                  # cdn?xhr=1 shape
+        for key in ("sbData", "scoreboard"):
+            sub = content.get(key)
+            if isinstance(sub, dict) and isinstance(sub.get("events"), list):
+                return sub["events"]
+    return []
+
+def fetch_espn(routes) -> dict:
+    """Try each route, preferring one already known to work this run."""
+    global espn_route
+    ordered = sorted(routes, key=lambda r: 0 if r[0] == espn_route else 1)
     last = None
-    for name, url in routes:
-        # Once a route is known to work this run, don't retry the broken ones
-        if espn_route and name != espn_route:
-            continue
+    for name, url in ordered:
         try:
-            data = fetch_json(url, retries=2)
+            data = fetch_json(url)
             if espn_route != name:
                 espn_route = name
                 log(f"(ESPN route: {name})")
@@ -121,20 +134,9 @@ def fetch_espn(target_url: str) -> dict:
         except Exception as e:
             last = e
             continue
-    # Nothing worked with the pinned route — clear it and try everything once
-    if espn_route:
-        espn_route = None
-        for name, url in routes:
-            try:
-                data = fetch_json(url, retries=1)
-                espn_route = name
-                log(f"(ESPN route switched to: {name})")
-                return data
-            except Exception as e:
-                last = e
     raise last
 
-def fetch_json(url: str, headers: dict = None, retries: int = 3,
+def fetch_json(url: str, headers: dict = None, retries: int = 2,
                browser_headers: bool = True) -> dict:
     # ESPN needs browser-like headers; Discord needs its own UA and no
     # espn.com Referer/Origin, so it passes browser_headers=False.
@@ -145,19 +147,20 @@ def fetch_json(url: str, headers: dict = None, retries: int = 3,
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers=h)
-            with urllib.request.urlopen(req, timeout=20) as r:
+            with urllib.request.urlopen(req, timeout=10) as r:
                 return json.loads(r.read().decode())
         except urllib.error.HTTPError as e:
             last = e
-            # 403/429/5xx can be transient or rate-related — back off and retry
-            if e.code in (403, 429, 500, 502, 503, 504) and attempt < retries - 1:
-                time.sleep(1.5 * (attempt + 1))
+            # 403 = blocked, not transient: fail immediately so the next ESPN
+            # host is tried instead of burning 20s three times over.
+            if e.code in (429, 500, 502, 503) and attempt < retries - 1:
+                time.sleep(1.0)
                 continue
             raise
         except Exception as e:
             last = e
             if attempt < retries - 1:
-                time.sleep(1.5 * (attempt + 1))
+                time.sleep(1.0)
                 continue
             raise
     raise last
@@ -340,7 +343,7 @@ def find_koc_school(team_name: str, token_map: dict, name_map: dict):
 # ── ESPN parsing ──────────────────────────────────────────────────────────────
 def parse_games(data: dict, sport: str) -> list:
     games = []
-    for event in data.get("events", []):
+    for event in extract_events(data):
         try:
             comp  = event["competitions"][0]
             teams = {c["homeAway"]: c for c in comp["competitors"]}
@@ -384,13 +387,12 @@ def fetch_koc_games(date_strs, token_map, name_map) -> list:
     """Fetch the given Eastern dates and return only KoC-vs-KoC games."""
     global espn_ok, espn_failed
     found, seen = [], set()
-    for sport, league_path in ESPN_LEAGUES:
+    for sport, league_path, cdn_slug in ESPN_LEAGUES:
         for date_str in date_strs:
             for variant in GROUP_VARIANTS:
-                url = (f"{ESPN_BASE}/{league_path}/scoreboard"
-                       f"?dates={date_str}&limit=500{variant}")
+                routes = espn_routes(league_path, cdn_slug, date_str, variant)
                 try:
-                    games = parse_games(fetch_espn(url), sport)
+                    games = parse_games(fetch_espn(routes), sport)
                     espn_ok += 1
                 except urllib.error.HTTPError as e:
                     espn_failed += 1
