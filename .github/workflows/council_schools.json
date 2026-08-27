@@ -24,7 +24,8 @@
     "name": "Univerity of Illinois",
     "city": "Champaign",
     "state": "Illinois",
-    "council": "2782"
+    "council": "2782",
+    "emoji": "<:universityofillinois:1389495245166739496>"
   },
   {
     "name": "University of Scranton",
@@ -64,7 +65,8 @@
     "alt_names": [
       "Benedictine Ravens",
       "Benedictine"
-    ]
+    ],
+    "emoji": "<:benedictinecollege:1391233244451836085>"
   },
   {
     "name": "St. Anselm College",
@@ -104,7 +106,8 @@
     "alt_names": [
       "Manhattan Jaspers",
       "Manhattan"
-    ]
+    ],
+    "emoji": "<:manhattanuniversity:1470886520037708044>"
   },
   {
     "name": "King's College",
@@ -165,7 +168,8 @@
     "alt_names": [
       "Marquette Golden Eagles",
       "Marquette"
-    ]
+    ],
+    "emoji": "<:marquetteuniversity:1394194738541756477>"
   },
   {
     "name": "The Citadel",
@@ -195,7 +199,8 @@
       "Southern Illinois Salukis",
       "SIU",
       "Southern Illinois"
-    ]
+    ],
+    "emoji": "<:southernillinoisucarbondale:1389495113876504616>"
   },
   {
     "name": "University of Arkansas",
@@ -278,7 +283,8 @@
       "Eastern Illinois Panthers",
       "Eastern Illinois",
       "EIU"
-    ]
+    ],
+    "emoji": "<:easternillinoisuniversity:1414128371641749504>"
   },
   {
     "name": "Rockhurst College",
@@ -299,7 +305,8 @@
       "North Dakota State Bison",
       "NDSU",
       "North Dakota State"
-    ]
+    ],
+    "emoji": "<:northdakotastateuniversity:1435420270960574645>"
   },
   {
     "name": "Norwich University",
@@ -336,7 +343,8 @@
     "name": "The Catholic University of America",
     "city": "Washington",
     "state": "District Of Columbia",
-    "council": "9542"
+    "council": "9542",
+    "emoji": "<:catholicuniversityofamerica:1421941668315140147>"
   },
   {
     "name": "U.S. Merchant Marine Academy",
@@ -393,7 +401,10 @@
     "name": "Missouri State University",
     "city": "Springfield",
     "state": "Missouri",
-    "council": "11182"
+    "council": "11182",
+    "alt_names": [
+      "Missouri State Bears"
+    ]
   },
   {
     "name": "Virginia Polytechnic Institute",
@@ -413,7 +424,8 @@
     "alt_names": [
       "Virginia Cavaliers",
       "Virginia"
-    ]
+    ],
+    "emoji": "<:universityofvirginia:1428097191209340938>"
   },
   {
     "name": "Santo Tomas De Aquino",
@@ -439,7 +451,8 @@
     "alt_names": [
       "Gonzaga Bulldogs",
       "Gonzaga"
-    ]
+    ],
+    "emoji": "<:gonzagauniversity:1488166853829464226>"
   },
   {
     "name": "University of Nebraska",
@@ -449,7 +462,8 @@
     "alt_names": [
       "Nebraska Cornhuskers",
       "Nebraska"
-    ]
+    ],
+    "emoji": "<:universityofnebraska:1428126790840225873>"
   },
   {
     "name": "Iowa State University",
@@ -501,7 +515,8 @@
     "alt_names": [
       "Baylor Bears",
       "Baylor"
-    ]
+    ],
+    "emoji": "<:bayloruniversity:1413649272070733924>"
   },
   {
     "name": "Rensselear Polytechnic Institute",
@@ -512,7 +527,8 @@
       "RPI Engineers",
       "Rensselaer",
       "RPI"
-    ]
+    ],
+    "emoji": "<:rensselaerpolytechnicinstitute:1422072501911162951>"
   },
   {
     "name": "Conception Seminary College",
@@ -527,7 +543,8 @@
     "council": "13900",
     "alt_names": [
       "Florida Gators"
-    ]
+    ],
+    "emoji": "<:universityofflorida:1428125585225289760>"
   },
   {
     "name": "University of Connecticut",
@@ -637,7 +654,8 @@
       "Bradley Braves",
       "Bradley University Braves",
       "Bradley"
-    ]
+    ],
+    "emoji": "<:bradleyuniversity:1414128656082665502>"
   },
   {
     "name": "University of Dallas",
@@ -695,7 +713,8 @@
     "alt_names": [
       "Houston Cougars",
       "Houston"
-    ]
+    ],
+    "emoji": "<:universityofhouston:1390112018278908034>"
   },
   {
     "name": "Purdue University",
@@ -716,7 +735,8 @@
       "Southeast Missouri State Redhawks",
       "SEMO",
       "Southeast Missouri"
-    ]
+    ],
+    "emoji": "<:semissouristateu:1421259422759391273>"
   },
   {
     "name": "Kent State University",
@@ -741,7 +761,8 @@
     "council": "15452",
     "alt_names": [
       "Kentucky Wildcats"
-    ]
+    ],
+    "emoji": "<:universityofkentucky:1389495367434764399>"
   },
   {
     "name": "South Dakota State University",
@@ -805,7 +826,8 @@
     "alt_names": [
       "Nevada Wolf Pack",
       "Nevada"
-    ]
+    ],
+    "emoji": "<:universityofnevadareno:1393095556015980584>"
   },
   {
     "name": "University of New Mexico",
@@ -826,7 +848,8 @@
       "Saint Martin's Saints",
       "Saint Martins Saints",
       "Saint Martins"
-    ]
+    ],
+    "emoji": "<:saintmartinsuniversity:1412844435418517604>"
   },
   {
     "name": "The University of Oklahoma",
@@ -836,7 +859,8 @@
     "alt_names": [
       "Oklahoma Sooners",
       "Oklahoma"
-    ]
+    ],
+    "emoji": "<:universityofoklahoma:1422251193467535370>"
   },
   {
     "name": "University of Alabama",
@@ -866,7 +890,8 @@
     "alt_names": [
       "Lamar Cardinals",
       "Lamar"
-    ]
+    ],
+    "emoji": "<:lamaruniversity:1409200853990244455>"
   },
   {
     "name": "New Mexico State University",
@@ -950,7 +975,8 @@
     "name": "University of Toronto",
     "city": "Toronto",
     "state": "Ontario",
-    "council": "17500"
+    "council": "17500",
+    "emoji": "<:universityoftoronto:1513964400178892940>"
   },
   {
     "name": "St. Mary's Seminary",
@@ -1012,7 +1038,8 @@
     "alt_names": [
       "McNeese Cowboys",
       "McNeese"
-    ]
+    ],
+    "emoji": "<:mcneesestateuniversity:1421941778621399200>"
   },
   {
     "name": "Sacred Heart Majory Seminary",
@@ -1060,7 +1087,8 @@
     "alt_names": [
       "St. Marys Rattlers",
       "Saint Marys"
-    ]
+    ],
+    "emoji": "<:stmarysuniversitytexas:1389496335916601354>"
   },
   {
     "name": "St. Thomas Aquinas",
@@ -1076,7 +1104,8 @@
     "alt_names": [
       "Illinois State Redbirds",
       "Illinois State"
-    ]
+    ],
+    "emoji": "<:illinoisstateuniversity:1414128589296762981>"
   },
   {
     "name": "Santiago Catholic Trade School",
@@ -1138,7 +1167,8 @@
     "alt_names": [
       "Cal Poly Mustangs",
       "Cal Poly"
-    ]
+    ],
+    "emoji": "<:calpoly:1390521461978042659>"
   },
   {
     "name": "High Point University",
@@ -1150,7 +1180,8 @@
       "High Point",
       "HPU",
       "HPU Panthers"
-    ]
+    ],
+    "emoji": "<:highpointuniversity:1473549140003917906>"
   },
   {
     "name": "Northern Illinois University",
@@ -1160,7 +1191,8 @@
     "alt_names": [
       "Northern Illinois Huskies",
       "Northern Illinois"
-    ]
+    ],
+    "emoji": "<:northernillinoisuniversity:1414127988836008106>"
   },
   {
     "name": "Southern Illinois University Edwardsville",
@@ -1171,7 +1203,8 @@
       "SIUE Cougars",
       "SIU Edwardsville",
       "SIU Edwardsville Cougars"
-    ]
+    ],
+    "emoji": "<:southernillinoisuedwardsville:1414128056578347060>"
   },
   {
     "name": "University of Illinois Chicago",
@@ -1182,7 +1215,8 @@
       "UIC Flames",
       "Illinois Chicago Flames",
       "University of Illinois Chicago Flames"
-    ]
+    ],
+    "emoji": "<:universityofillinoischicago:1452167560991871107>"
   },
   {
     "name": "Benedictine University",
@@ -1192,7 +1226,8 @@
     "alt_names": [
       "Benedictine University Eagles",
       "Benedictine University (IL)"
-    ]
+    ],
+    "emoji": "<:benedictineuniversity:1452168011455664218>"
   },
   {
     "name": "Loyola University Chicago",
@@ -1203,17 +1238,19 @@
       "Loyola Ramblers",
       "Loyola University Ramblers",
       "Loyola Chicago Ramblers"
-    ]
+    ],
+    "emoji": "<:loyolauniversitychicago:1460505704082182268>"
   },
   {
     "name": "University of Akron",
     "city": "Akron",
     "state": "Ohio",
-    "council": "18892",
+    "council": "TBD",
     "alt_names": [
       "Akron Zips",
       "Akron"
-    ]
+    ],
+    "emoji": "<:universityofakron:1389673698948022333>"
   },
   {
     "name": "University of California, Los Angeles",
@@ -1223,7 +1260,8 @@
     "alt_names": [
       "UCLA Bruins",
       "UCLA"
-    ]
+    ],
+    "emoji": "<:universityofcalifornialosangeles:1469890865576149164>"
   },
   {
     "name": "Miami University Ohio",
@@ -1234,50 +1272,61 @@
       "Miami (OH)",
       "Miami (OH) Redhawks",
       "Miami Redhawks"
-    ]
+    ],
+    "emoji": "<:miamiuniversityohio:1389495308991467550>"
   },
-    {
-    "name": "Western Illinois University",
-    "city": "Macomb",
+  {
+    "name": "Quincy University",
+    "city": "Quincy",
     "state": "Illinois",
-    "council": "TBD",
+    "council": "4945",
     "alt_names": [
-      "WIU",
-      "Western Illinois University Leathernecks",
-      "Western Illinois Leathernecks"
-    ]
+      "Quincy Hawks",
+      "Quincy"
+    ],
+    "emoji": "<:quincyuniversity:1452167437758889984>"
   },
-    {
+  {
+    "name": "Mapua University",
+    "city": "Manila",
+    "state": "Philippines",
+    "council": "12787",
+    "alt_names": [
+      "Mapua Cardinals",
+      "Mapua"
+    ],
+    "emoji": "<:mapauniversity:1392314269013512293>"
+  },
+  {
     "name": "University of Chicago",
     "city": "Chicago",
     "state": "Illinois",
     "council": "TBD",
     "alt_names": [
-      "UChicago",
-      "University of Chicago Maroons",
-      "UChicago Maroons"
-    ]
+      "Chicago Maroons"
+    ],
+    "emoji": "<:universityofchicago:1509296177026302003>"
   },
-    {
-    "name": "North Central College",
-    "city": "Naperville",
+  {
+    "name": "University of Maryland Baltimore County",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "council": "18656",
+    "alt_names": [
+      "UMBC Retrievers",
+      "UMBC"
+    ],
+    "emoji": "<:uofmarylandbaltimorecounty:1425879211033366588>"
+  },
+  {
+    "name": "Western Illinois University",
+    "city": "Macomb",
     "state": "Illinois",
     "council": "TBD",
     "alt_names": [
-      "NCC",
-      "North Central College Cardinals",
-      "North Central Cardinals"
-    ]
-  },
-    {
-    "name": "University of Toronto",
-    "city": "Toronto",
-    "state": "Ontario",
-    "council": "17500",
-    "alt_names": [
-      "University of Toronto",
-      "University of Toronto Varsity Blues",
-      "Toronto Varsity Blues"
-    ]
+      "Western Illinois Leathernecks",
+      "Western Illinois"
+    ],
+    "emoji": "<:westernillinoisuniversity:1494527239935623209>"
   }
 ]
